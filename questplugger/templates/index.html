@@ -1,0 +1,33 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Quest Plugger</title>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="{% static 'css/blog.css' %}">
+</head>
+<body>
+{% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+<h1>Welcome to Quest Plugger App</h1>
+<p><h2>Navigation Links</h2></p>
+<strong>
+{% if url_list %}
+    <ul>
+    {% for url in url_list %}
+        <li><a href="{{url}}">{{url}}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No Links </p>
+{% endif %}
+</strong>
+</body>
+</html>

@@ -1,0 +1,27 @@
+{% load static %}
+
+<div class="page-header">
+    <h1><a href="/">Quest Plugger</a></h1>
+</div>
+
+<html>
+<head>
+<title>Quest Form</title>
+<link rel="stylesheet" type="text/css" href="{% static 'questform/style.css' %}">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="{% static 'questform/style.css' %}">
+
+</head>
+
+<div>
+<h2>Quest Form</h2>
+
+<form method="post">
+    {% csrf_token %}
+    {{ quest_form.as_p }}
+    {{ result_form.as_p }}
+    <div class="form-actions">
+      <button type="submit">Submit</button>
+    </div>
+</form>

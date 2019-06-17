@@ -2,18 +2,50 @@
 
 Practicing my Django web application skills here.
 
-An app to organize project information with a quest theme.
+# How to run Program
 
-The idea is to include the most pertinent information that would be relevant for including in a portfolio for potential employers or clients interested in getting a snapshot view of the project process. The concept would include a general list view of all projects (aka Quests), and a detailed view of each project. There should also ideally be a Plugger form where visitors can input their own project data to be added into the database, and they can see their project formatted as a quest.
-
-# How to run
-
-Go on Git bash and activate the Python Virtual Environment
+### Install the virtualenv package
+Install the virtualenv package to create and activate a virtual environment
 ```
-source myvenv/Scripts/activate
+pip install virtualenv
 ```
 
-Then run the server with the following command:
+### Create virtual environment
+```
+virtualenv venv
+```
+
+### Activate the virtual environment
+
+Mac OS / Linux
+```
+source venv/bin/activate
+```
+
+Windows
+```
+source venv/source/activate
+
+--- or ---
+
+venv\Scripts\activate
+```
+
+### Get necessary files to run the program in the virtual environment
+
+pip has the option to install everything needed to run the program with requirements.txt
+```
+pip install -r requirements.txt
+```
+
+
+### Deactive the virtual environment
+```
+deactivate
+```
+
+### To run the server 
+
 ```
 python manage.py runserver 8001
 ```
@@ -26,3 +58,11 @@ python manage.py runserver 8001
 pip install django-multiselectfield
 ```
 
+# Notes
+
+### Requirements.txt
+
+Make sure if there are any installs, plugins, or libraries added to add to the requirements.txt. This cab be done with the following command:
+```
+pip freeze > requirements.txt
+```

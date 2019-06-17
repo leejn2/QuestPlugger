@@ -15,9 +15,9 @@ def index(request):
             from_email = form.cleaned_data['from_email']
             message = form.cleaned_data['message']
             try:
-                send_mail(subject, message, from_email, ['rickytham123@gmail.com'])
+                send_mail(subject, message, from_email, ['leejn@g.ucla.edu'])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
             messages.info(request, 'Your message has been sent successfully!')
-            return HttpResponseRedirect('/home/')
+            return HttpResponseRedirect('/')
     return render(request, "contact.html", {'form': form})

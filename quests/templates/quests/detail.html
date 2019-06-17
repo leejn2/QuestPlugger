@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Quest Pin: {{quest_pin}}</h1>
+    {% if quest_pin %}
+        <p>Rank: {{quest_pin.rank}}</p>
+        <p>Roles: </p>
+        <ul>
+        {% for role in quest_pin.roles %}
+            <li>{{role}}</li>
+        {% endfor %}
+        </ul>
+        <p>Team Size: {{quest_pin.team_size}}</p>
+        <p>Duration: {{quest_pin.duration}}</p>
+        <p>Deliverables: </p>
+        <ul>
+        {% for deliverable in quest_result.deliverables %}
+            <li>{{deliverable}}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No Quest Data</p>
+    {% endif %}
+{% endblock %}

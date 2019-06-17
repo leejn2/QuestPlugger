@@ -25,7 +25,7 @@ class QuestPin(models.Model):
 
 
 class QuestResult(models.Model):
-    questpin = models.ForeignKey(QuestPin, on_delete=models.CASCADE)
+    questpin = models.ForeignKey(QuestPin, on_delete=models.CASCADE, unique=True)
     deliverables = MultiSelectField(
         choices=DELIVERABLES_CHOICES,
     )

@@ -1,12 +1,21 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<link rel="stylesheet" type="text/css" href="{% static '/css/nobullet.css' %}">
-    <h1>Latest Quest Pins</h1>
+<link rel="stylesheet" type="text/css" href="{% static 'questform/style.css' %}">
+    <div class="row">   
+        <div class=col-md-11>
+            <h1>Quest Pins</h1>
+        </div>
+        <div class="col-md-1">
+            <button class="btn btn-lg btn-dark" onclick="window.location.href = 'form/';"><i class="fa fa-plus"></i> Add Quest</button>
+        </div>
+        
+    </div> 
+    
     {% if quest_pin_list %}
         <ul>
         {% for quest in quest_pin_list %}
-            <li><h2><a href="quests/quest/{{quest.id}}">{{quest.name}}</a></h2></li>
+            <li><h2><a href="quest/{{quest.id}}">{{quest.name}}</a></h2></li>
             <table style="width:100%">
                 <tr>
                     <th>Rank</th>
@@ -20,7 +29,7 @@
                     <td width="10%">{{quest.team_size}}</td>
                     <td width="10%">{{quest.duration}}</td>
                 </tr>
-                </table>
+            </table>
         {% endfor %}
         </ul>
     {% else %}

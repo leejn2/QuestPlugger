@@ -1,4 +1,4 @@
 {
-    "python.pythonPath": "d:\\Github\\DjangoApp\\mypython\\Scripts\\python.exe",
+    "python.pythonPath": "myvenv\\Scripts\\python.exe",
     "git.ignoreLimitWarning": true
 }

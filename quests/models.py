@@ -3,6 +3,11 @@ from multiselectfield import MultiSelectField
 from .choices import *
 # Create your models here.
 
+class PatchedMultiSelectField(MultiSelectField):
+  def value_to_string(self, obj):
+    value = self.value_from_object(obj)
+    return self.get_prep_value(value)
+
 class QuestPin(models.Model):
     name = models.CharField(max_length=75)
     rank = models.CharField(
@@ -10,7 +15,7 @@ class QuestPin(models.Model):
         choices=RANK_CHOICES,
         default=F_RANK,
     )
-    roles = MultiSelectField(
+    roles = PatchedMultiSelectField(
         choices=ROLE_CHOICES,
     )
     team_size = models.CharField(
@@ -26,7 +31,7 @@ class QuestPin(models.Model):
 
 class QuestResult(models.Model):
     questpin = models.ForeignKey(QuestPin, on_delete=models.CASCADE, unique=True)
-    deliverables = MultiSelectField(
+    deliverables = PatchedMultiSelectField(
         choices=DELIVERABLES_CHOICES,
     )
 
